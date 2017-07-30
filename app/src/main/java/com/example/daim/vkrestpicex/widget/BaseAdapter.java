@@ -46,6 +46,11 @@ public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder, T> extends
         refreshRecycler();
     }
 
+    public final void addDataSet(@NonNull List<T> values){
+        mItems.addAll(values);
+        refreshRecycler();
+    }
+
     public final void changeDataSet(@NonNull List<T> values) {
         mItems.clear();
         mItems.addAll(values);

@@ -1,4 +1,4 @@
-package repository;
+package com.example.daim.vkrestpicex.repository;
 
 import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;

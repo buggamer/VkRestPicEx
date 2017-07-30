@@ -2,7 +2,10 @@ package com.example.daim.vkrestpicex.screen.gallery;
 
 import android.support.annotation.NonNull;
 
-import repository.RepositoryProvider;
+import com.example.daim.vkrestpicex.content.Photo;
+import com.example.daim.vkrestpicex.repository.RepositoryProvider;
+
+import java.util.List;
 
 /**
  * Created by DAIM on 24.07.2017.
@@ -12,7 +15,7 @@ public class GalleryPresenter {
 
     private  GalleryView mGalleryView;
     private int mItemCount;
-    private int mItemOffset = 50;
+    private int mItemStep = 50;
     private boolean isAll = false;
 
     public GalleryPresenter(@NonNull GalleryView view){
@@ -20,10 +23,23 @@ public class GalleryPresenter {
     }
 
     public void init(){
+        newPhotosRequest();
+    }
+
+    public void newPhotosRequest(){
+        if(isAll) return;
         RepositoryProvider.provideVKRepository()
-                .photos()
+                .photos(mItemCount, mItemStep)
                 .doOnSubscribe(mGalleryView::showLoading)
                 .doOnTerminate(mGalleryView::hideLoading)
-                .subscribe(mGalleryView::showPhotos, throwable -> mGalleryView.showError(throwable));
+                .subscribe(this::newPhotosHandling, throwable -> mGalleryView.showError(throwable));
+    }
+
+    private void newPhotosHandling(List<Photo> photos){
+        if(photos.size() > 0){
+            mItemCount+=photos.size();
+            if(photos.size() < mItemStep) isAll = true;
+            mGalleryView.showPhotos(photos);
+        }
     }
 }

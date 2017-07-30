@@ -11,7 +11,7 @@ import com.orhanobut.hawk.HawkBuilder;
 import com.orhanobut.hawk.LogLevel;
 import com.squareup.picasso.Picasso;
 
-import repository.RepositoryProvider;
+import com.example.daim.vkrestpicex.repository.RepositoryProvider;
 
 public class AppDelegate extends Application {
 

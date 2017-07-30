@@ -31,7 +31,7 @@ import butterknife.ButterKnife;
  */
 
 public class GalleryActivity extends AppCompatActivity implements GalleryView,
-        BaseAdapter.OnItemClickListener<Photo>{
+        BaseAdapter.OnItemClickListener<Photo>, GalleryAdapter.OnPaginationListener{
 
     private final String LOG_TAG = "GalleryActivity";
 
@@ -67,6 +67,7 @@ public class GalleryActivity extends AppCompatActivity implements GalleryView,
         mAdapter = createAdapter();
         mAdapter.attachToRecyclerView(mRecyclerView);
         mAdapter.setOnItemClickListener(this);
+        mAdapter.setOnPaginationRequest(this);
 
         mPresenter = new GalleryPresenter(this);
         mPresenter.init();
@@ -75,7 +76,7 @@ public class GalleryActivity extends AppCompatActivity implements GalleryView,
     @Override
     public void showPhotos(@NonNull List<Photo> photos) {
         Log.d(LOG_TAG, "photos: " + photos.size());
-        mAdapter.changeDataSet(photos);
+        mAdapter.addDataSet(photos);
     }
 
     @Override
@@ -108,5 +109,10 @@ public class GalleryActivity extends AppCompatActivity implements GalleryView,
         int imageWidth = getResources().getDisplayMetrics().widthPixels / 2;
 
         return new GalleryAdapter(new ArrayList(), imageHeight, imageWidth);
+    }
+
+    @Override
+    public void paginationRequest() {
+        mPresenter.newPhotosRequest();
     }
 }
