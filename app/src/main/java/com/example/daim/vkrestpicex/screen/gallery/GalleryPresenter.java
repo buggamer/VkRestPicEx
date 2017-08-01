@@ -15,8 +15,8 @@ public class GalleryPresenter {
 
     private  GalleryView mGalleryView;
     private int mItemCount;
-    private int mItemStep = 50;
-    private boolean isAll = false;
+    private int mItemStep = 100;
+    private boolean mIsAll = false;
 
     public GalleryPresenter(@NonNull GalleryView view){
         mGalleryView = view;
@@ -27,7 +27,7 @@ public class GalleryPresenter {
     }
 
     public void newPhotosRequest(){
-        if(isAll) return;
+        if(mIsAll) return;
         RepositoryProvider.provideVKRepository()
                 .photos(mItemCount, mItemStep)
                 .doOnSubscribe(mGalleryView::showLoading)
@@ -38,7 +38,7 @@ public class GalleryPresenter {
     private void newPhotosHandling(List<Photo> photos){
         if(photos.size() > 0){
             mItemCount+=photos.size();
-            if(photos.size() < mItemStep) isAll = true;
+            if(photos.size() < mItemStep) mIsAll = true;
             mGalleryView.showPhotos(photos);
         }
     }

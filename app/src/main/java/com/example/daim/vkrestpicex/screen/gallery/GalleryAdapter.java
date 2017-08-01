@@ -1,6 +1,7 @@
 package com.example.daim.vkrestpicex.screen.gallery;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.ViewGroup;
 
 
@@ -20,7 +21,7 @@ public class GalleryAdapter extends BaseAdapter<PhotoHolder, Photo> {
 
     private final int mImageWidth;
     private final int mImageHeight;
-    private final int mPaginationStep = 30;
+    private final int mPaginationStep = 80;
 
     private  OnPaginationListener mOnPaginationListener;
 
@@ -38,6 +39,7 @@ public class GalleryAdapter extends BaseAdapter<PhotoHolder, Photo> {
     @Override
     public void onBindViewHolder(PhotoHolder holder, int position) {
         super.onBindViewHolder(holder, position);
+        Log.d(LOG_TAG, "onBindViewHolder(): " + position);
         Photo photo = getItem(position);
         holder.bind(photo, position);
         if(position % mPaginationStep == 0) mOnPaginationListener.paginationRequest();

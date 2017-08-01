@@ -1,5 +1,8 @@
 package com.example.daim.vkrestpicex.content;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -8,7 +11,7 @@ import java.util.List;
  * Created by DAIM on 24.07.2017.
  */
 
-public class Photo {
+public class Photo implements Parcelable{
     @SerializedName("id")
     private Integer mId;
 
@@ -38,6 +41,8 @@ public class Photo {
 
     @SerializedName("real_offset")
     private Integer mRealOffset;
+
+    private String mBigPhotoUrl;
 
     public Integer getId() {
         return mId;
@@ -79,4 +84,39 @@ public class Photo {
         return mRealOffset;
     }
 
+    public String getBigPhotoUrl() { return mBigPhotoUrl; }
+
+    public Photo(Parcel in){
+        mId = in.readInt();
+        mText = in.readString();
+        mDate = in.readInt();
+        mBigPhotoUrl = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(mId);
+        parcel.writeString(mText);
+        parcel.writeInt(mDate);
+        String bigPhotoUrl = mPhotoUrls.get(mPhotoUrls.size() - 1).getUrl();
+        parcel.writeString(bigPhotoUrl);
+    }
+
+    public static final Creator<Photo> CREATOR = new Creator<Photo>() {
+
+        @Override
+        public Photo createFromParcel(Parcel parcel) {
+            return new Photo(parcel);
+        }
+
+        @Override
+        public Photo[] newArray(int i) {
+            return new Photo[i];
+        }
+    };
 }

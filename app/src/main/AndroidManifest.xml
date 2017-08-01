@@ -21,6 +21,10 @@
         </activity>
 
         <activity android:name=".screen.gallery.GalleryActivity"/>
+
+        <activity
+            android:theme="@style/AppTheme.NoActionBar"
+            android:name=".screen.photo.PhotoActivity"/>
     </application>
 
 </manifest>

@@ -10,12 +10,14 @@ import android.support.v7.widget.GridLayoutManager;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.ImageView;
 
 
 import com.example.daim.vkrestpicex.R;
 import com.example.daim.vkrestpicex.content.Photo;
 import com.example.daim.vkrestpicex.screen.general.LoadingDialog;
 import com.example.daim.vkrestpicex.screen.general.LoadingView;
+import com.example.daim.vkrestpicex.screen.photo.PhotoActivity;
 import com.example.daim.vkrestpicex.widget.BaseAdapter;
 import com.example.daim.vkrestpicex.widget.EmptyRecyclerView;
 import com.example.daim.vkrestpicex.widget.PreCachingLayoutManager;
@@ -86,7 +88,9 @@ public class GalleryActivity extends AppCompatActivity implements GalleryView,
     }
 
     @Override
-    public void onItemClick(@NonNull Photo item) {
+    public void onItemClick(@NonNull Photo item, @NonNull View view) {
+        ImageView imageView = ButterKnife.findById(view, R.id.image);
+        PhotoActivity.navigate(this, imageView, item);
 
     }
 
