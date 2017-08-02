@@ -24,7 +24,7 @@ public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder, T> extends
         if (mOnItemClickListener != null) {
             int position = (int) view.getTag();
             T item = mItems.get(position);
-            mOnItemClickListener.onItemClick(item, view);
+            mOnItemClickListener.onItemClick(item, view, position);
         }
     };
 
@@ -92,7 +92,7 @@ public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder, T> extends
 
     public interface OnItemClickListener<T> {
 
-        void onItemClick(@NonNull T item, @NonNull View view);
+        void onItemClick(@NonNull T item, @NonNull View view, @NonNull int position);
 
     }
 

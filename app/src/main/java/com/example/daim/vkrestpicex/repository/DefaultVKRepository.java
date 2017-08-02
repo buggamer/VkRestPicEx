@@ -27,11 +27,16 @@ public class DefaultVKRepository implements VKRepository {
                 .flatMap(response -> {
                     return Observable.just(response.getResponse());
                 })
-                .map(PhotoResponse::getPhotos)
-                .flatMap(Observable::from)
                 .doOnError(throwable -> {
                     Log.d(LOG_TAG, throwable.getMessage());
                 })
+                .map(response ->{
+                    SinglePhotoCache.setPhotoCountity(response.getCount());
+                    SinglePhotoCache.addPhotos(response.getPhotos());
+                    return response;
+                })
+                .map(PhotoResponse::getPhotos)
+                .flatMap(Observable::from)
                 .toList()
                 .compose(RxUtils.async());
     }

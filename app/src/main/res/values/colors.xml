@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="error_text_color">#bcbcbc</color>
+
+    <color name="actionbar_opacity">#33000000</color>
 </resources>

@@ -88,9 +88,9 @@ public class GalleryActivity extends AppCompatActivity implements GalleryView,
     }
 
     @Override
-    public void onItemClick(@NonNull Photo item, @NonNull View view) {
+    public void onItemClick(@NonNull Photo item, @NonNull View view, @NonNull int position) {
         ImageView imageView = ButterKnife.findById(view, R.id.image);
-        PhotoActivity.navigate(this, imageView, item);
+        PhotoActivity.navigate(this, imageView, item, position);
 
     }
 
