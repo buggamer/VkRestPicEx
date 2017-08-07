@@ -13,6 +13,6 @@ import rx.Observable;
 
 public interface VKService {
 
-    @GET("/method/photos.getAll?v=5.67&skip_hidden=1&photo_sizes=1")
+    @GET("/method/photos.getAll?v=5.67&skip_hidden=1&photo_sizes=1&extended=1")
     Observable<Response> photos(@Query("offset") int offset, @Query("count") int count);
 }

@@ -22,7 +22,7 @@ public class AuthPresenter {
     public void init() {
         String token = PreferenceUtils.getToken();
         if (!TextUtils.isEmpty(token) && (System.currentTimeMillis() < PreferenceUtils.getExpiresIn())) {
-            Log.d(LOG_TAG, "ture");
+            Log.d(LOG_TAG, "true");
             mAuthView.openGalleryScreen();
         }else{
             Log.d(LOG_TAG, "false");
@@ -31,7 +31,7 @@ public class AuthPresenter {
     }
 
     public void saveParseToken(String url){
-        AuthorizationUtils.parseAndSaveToken(url);
-        init();
+       boolean gotToken =  AuthorizationUtils.parseAndSaveToken(url);
+       if(gotToken) init();
     }
 }

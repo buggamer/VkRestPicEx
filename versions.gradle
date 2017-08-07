@@ -9,4 +9,5 @@ ext {
     hawkVersion = '1.23'
     picassoVersion = '2.5.2'
     picassoDownloaderVersion = '1.0.2'
+    photoViewVersion = '2.1.3'
 }

@@ -42,6 +42,13 @@ public class Photo implements Parcelable{
     @SerializedName("real_offset")
     private Integer mRealOffset;
 
+    @SerializedName("comments")
+    private Comments mComments;
+
+    public Comments getComments() {
+        return mComments;
+    }
+
     private String mBigPhotoUrl;
 
     public Integer getId() {
@@ -84,7 +91,7 @@ public class Photo implements Parcelable{
         return mRealOffset;
     }
 
-    public String getBigPhotoUrl() { return mBigPhotoUrl; }
+    public String getBigPhotoUrl() { return mPhotoUrls.get(mPhotoUrls.size() - 1).getUrl(); }
 
     public Photo(Parcel in){
         mId = in.readInt();

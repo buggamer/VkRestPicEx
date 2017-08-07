@@ -44,11 +44,12 @@ public class AuthorizationUtils {
                 .toString();
     }
 
-    public static void parseAndSaveToken(String url){
+    public static boolean parseAndSaveToken(String url){
         Log.d(LOG_TAG, url);
-        if(url.contains(REDIRECT_URI_REGEX) && !url.contains("error")){
+        if(url.contains(REDIRECT_URI_REGEX) && url.contains(TOKEN_KEY) && !url.contains("error")){
             Log.d(LOG_TAG, url);
             String[] query = url.split("#");
+            Log.d(LOG_TAG, "query[].length: " + query[0]);
             String[] params = query[1].split("&");
             for (String s : params){
                 String[] value = s.split("=");
@@ -61,7 +62,9 @@ public class AuthorizationUtils {
                     PreferenceUtils.saveExpiresIn(expiresTime);
                 }
             }
+            return true;
         }
+        return false;
     }
 
 

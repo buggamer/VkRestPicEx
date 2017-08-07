@@ -54,7 +54,7 @@ public class PhotoHolder extends RecyclerView.ViewHolder{
 
     public void bind(@NonNull Photo photo, int position){
 
-        mTextView.setText(position + "");
+       // mTextView.setText(position + "");
         PhotoImageUtils.loadPhoto(mImageView, photo, mWidth, mHeight);
     }
 }

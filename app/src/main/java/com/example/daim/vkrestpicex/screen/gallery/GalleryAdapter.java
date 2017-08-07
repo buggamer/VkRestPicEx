@@ -21,7 +21,7 @@ public class GalleryAdapter extends BaseAdapter<PhotoHolder, Photo> {
 
     private final int mImageWidth;
     private final int mImageHeight;
-    private final int mPaginationStep = 80;
+    private final int mPaginationStep = 20;
 
     private  OnPaginationListener mOnPaginationListener;
 
@@ -42,7 +42,7 @@ public class GalleryAdapter extends BaseAdapter<PhotoHolder, Photo> {
         Log.d(LOG_TAG, "onBindViewHolder(): " + position);
         Photo photo = getItem(position);
         holder.bind(photo, position);
-        if(position % mPaginationStep == 0) mOnPaginationListener.paginationRequest();
+        if((getItemCount() - position) == mPaginationStep) mOnPaginationListener.paginationRequest();
     }
 
     public void setOnPaginationRequest(OnPaginationListener listener){

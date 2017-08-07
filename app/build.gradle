@@ -14,6 +14,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
 
         buildConfigField "String", "API_ENDPOINT", '"https://api.vk.com"'
         buildConfigField "String", "AUTHOR_ENDPOINT", '"https://oauth.vk.com/authorize"'
@@ -66,5 +67,7 @@ dependencies {
 
     compile "com.squareup.picasso:picasso:$picassoVersion"
     compile "com.jakewharton.picasso:picasso2-okhttp3-downloader:$picassoDownloaderVersion"
+
+    compile 'com.github.buggamer:PhotoView:2.1.3_a'
 
 }
