@@ -1,9 +1,6 @@
 package com.example.daim.vkrestpicex.api;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.support.annotation.NonNull;
-
 
 import com.example.daim.vkrestpicex.BuildConfig;
 
@@ -13,9 +10,6 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by DAIM on 22.07.2017.
- */
 
 public class ApiFactory {
 

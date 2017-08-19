@@ -6,24 +6,25 @@ import android.util.Log;
 import com.example.daim.vkrestpicex.content.Photo;
 import com.example.daim.vkrestpicex.repository.RepositoryProvider;
 import com.example.daim.vkrestpicex.repository.SinglePhotoCache;
+import com.example.daim.vkrestpicex.utils.LifeCycleHandler.LifeCycleHandler;
 
 import java.util.List;
 
-/**
- * Created by DAIM on 24.07.2017.
- */
+
 
 public class GalleryPresenter {
 
     private final static String LOG_TAG = "GalleryPresenter";
 
     private  GalleryView mGalleryView;
+    private LifeCycleHandler mLifeCycleHandler;
     private int mItemCount;
     private int mItemStep = 100;
     private boolean mIsAll = false;
 
-    public GalleryPresenter(@NonNull GalleryView view){
+    public GalleryPresenter(@NonNull GalleryView view, @NonNull LifeCycleHandler lfHandler){
         mGalleryView = view;
+        mLifeCycleHandler = lfHandler;
     }
 
     public void init(){
@@ -34,7 +35,6 @@ public class GalleryPresenter {
         }else{
             newPhotosRequest();
         }
-        Log.d(LOG_TAG, "PhotoCache.size(): " + SinglePhotoCache.getPhotos().size());
     }
 
     public void newPhotosRequest(){
@@ -43,6 +43,7 @@ public class GalleryPresenter {
                 .photos(mItemCount, mItemStep)
                 .doOnSubscribe(mGalleryView::showLoading)
                 .doOnTerminate(mGalleryView::hideLoading)
+                .compose(mLifeCycleHandler.load(123))
                 .subscribe(this::newPhotosHandling, throwable -> mGalleryView.showError(throwable));
     }
 

@@ -5,14 +5,13 @@ import android.app.Application;
 import android.support.annotation.NonNull;
 
 import com.example.daim.vkrestpicex.api.ApiFactory;
+import com.example.daim.vkrestpicex.repository.RepositoryProvider;
 import com.example.daim.vkrestpicex.repository.SinglePhotoCache;
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.orhanobut.hawk.Hawk;
 import com.orhanobut.hawk.HawkBuilder;
 import com.orhanobut.hawk.LogLevel;
 import com.squareup.picasso.Picasso;
-
-import com.example.daim.vkrestpicex.repository.RepositoryProvider;
 
 public class AppDelegate extends Application {
 

@@ -4,9 +4,6 @@ import android.support.annotation.NonNull;
 
 import com.orhanobut.hawk.Hawk;
 
-/**
- * Created by DAIM on 22.07.2017.
- */
 
 public final class PreferenceUtils {
 

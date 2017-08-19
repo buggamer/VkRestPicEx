@@ -10,15 +10,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-/**
- * Created by DAIM on 28.07.2017.
- */
+
 
 public class PhotoImageUtils {
 
     private final static int XSIZE = 604;
     private final static int YSIZE = 807;
-    private final static int FETCH_COUNT = 8;
 
     public static void loadPhoto(ImageView imageView, Photo photo, int width, int height) {
         int maxSize = Math.max(width, height);
@@ -27,22 +24,6 @@ public class PhotoImageUtils {
                 .load(url)
                 .noFade()
                 .into(imageView);
-       /* Picasso.with(imageView.getContext())
-                .load(url)
-                .fetch(new Callback() {
-                    @Override
-                    public void onSuccess() {
-                        Picasso.with(imageView.getContext())
-                                .load(url)
-                                .noFade()
-                                .into(imageView);
-                    }
-
-                    @Override
-                    public void onError() {
-
-                    }
-                });*/
     }
 
     public static void loadPhoto(ImageView imageView, String url){
@@ -51,15 +32,6 @@ public class PhotoImageUtils {
                 .noFade()
                 .into(imageView);
     }
-
-   /* public static void preFetchPhotos(List<Photo> photos, Context context){
-        for(int i = 0; i < FETCH_COUNT; i++){
-            String url = getGalleryScreenPhotoUrl(maxSize, photo.getPhotoUrls());
-            Picasso.with(context)
-                    .load(url)
-                    .fetch();
-        }
-    }*/
 
 
     private static String getGalleryScreenPhotoUrl(int maxSize, List<PhotoUrl> photoUrls){

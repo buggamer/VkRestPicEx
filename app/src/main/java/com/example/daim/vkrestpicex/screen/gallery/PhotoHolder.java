@@ -8,19 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import com.example.daim.vkrestpicex.R;
 import com.example.daim.vkrestpicex.content.Photo;
 import com.example.daim.vkrestpicex.utils.PhotoImageUtils;
 
-import org.w3c.dom.Text;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * Created by DAIM on 24.07.2017.
- */
 
 public class PhotoHolder extends RecyclerView.ViewHolder{
 

@@ -126,8 +126,7 @@ public class PhotoActivity extends AppCompatActivity implements
         int result  = 0;
         int resourceId = this.getResources().getIdentifier("status_bar_height", "dimen", "android");
         if(resourceId > 0){
-            result = this.getResources().getDimensionPixelSize(resourceId);
-            Log.d(LOG_TAG, "result: " + result);
+            result = this.getResources().getDimensionPixelSize(resourceId);;
             mAppBarLayot.setPadding(0, result, 0, 0);
         }
     }

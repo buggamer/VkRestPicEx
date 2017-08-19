@@ -1,5 +1,8 @@
 package com.example.daim.vkrestpicex.screen.auth;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -17,6 +20,11 @@ public class AuthActivity extends AppCompatActivity implements AuthView{
     WebView mWebView;
 
     private AuthPresenter mPresenter;
+
+    public static void start(@NonNull Activity activity){
+        Intent intent = new Intent(activity, AuthActivity.class);
+        activity.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

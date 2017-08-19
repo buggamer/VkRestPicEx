@@ -7,9 +7,6 @@ import com.example.daim.vkrestpicex.content.Photo;
 
 import java.util.List;
 
-/**
- * Created by DAIM on 24.07.2017.
- */
 
 public interface GalleryView {
 

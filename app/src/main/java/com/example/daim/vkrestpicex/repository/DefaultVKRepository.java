@@ -12,9 +12,6 @@ import java.util.List;
 
 import rx.Observable;
 
-/**
- * Created by DAIM on 22.07.2017.
- */
 
 public class DefaultVKRepository implements VKRepository {
 
@@ -28,7 +25,7 @@ public class DefaultVKRepository implements VKRepository {
                     return Observable.just(response.getResponse());
                 })
                 .doOnError(throwable -> {
-                    Log.d(LOG_TAG, throwable.getMessage());
+                    Log.e(LOG_TAG, throwable.getMessage());
                 })
                 .map(response ->{
                     SinglePhotoCache.setPhotoCountity(response.getCount());

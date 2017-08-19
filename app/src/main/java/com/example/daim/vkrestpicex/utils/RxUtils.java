@@ -7,9 +7,6 @@ import rx.Scheduler;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-/**
- * Created by DAIM on 28.07.2017.
- */
 
 public class RxUtils {
     private RxUtils() {

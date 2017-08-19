@@ -2,7 +2,6 @@ package com.example.daim.vkrestpicex.api;
 
 import android.text.TextUtils;
 
-
 import com.example.daim.vkrestpicex.utils.PreferenceUtils;
 
 import java.io.IOException;
@@ -11,11 +10,8 @@ import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-import retrofit2.http.Url;
 
-/**
- * Created by DAIM on 24.07.2017.
- */
+
 
 public class ApiKeyInterceptor implements Interceptor{
 

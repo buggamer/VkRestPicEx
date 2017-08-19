@@ -11,9 +11,6 @@ import com.example.daim.vkrestpicex.widget.BaseAdapter;
 
 import java.util.List;
 
-/**
- * Created by DAIM on 24.07.2017.
- */
 
 public class GalleryAdapter extends BaseAdapter<PhotoHolder, Photo> {
 
@@ -38,8 +35,7 @@ public class GalleryAdapter extends BaseAdapter<PhotoHolder, Photo> {
 
     @Override
     public void onBindViewHolder(PhotoHolder holder, int position) {
-        super.onBindViewHolder(holder, position);
-        Log.d(LOG_TAG, "onBindViewHolder(): " + position);
+        super.onBindViewHolder(holder, position);;
         Photo photo = getItem(position);
         holder.bind(photo, position);
         if((getItemCount() - position) == mPaginationStep) mOnPaginationListener.paginationRequest();

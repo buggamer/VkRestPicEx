@@ -7,9 +7,6 @@ import android.util.Log;
 import com.example.daim.vkrestpicex.utils.AuthorizationUtils;
 import com.example.daim.vkrestpicex.utils.PreferenceUtils;
 
-/**
- * Created by DAIM on 28.07.2017.
- */
 
 public class AuthPresenter {
 
@@ -22,10 +19,8 @@ public class AuthPresenter {
     public void init() {
         String token = PreferenceUtils.getToken();
         if (!TextUtils.isEmpty(token) && (System.currentTimeMillis() < PreferenceUtils.getExpiresIn())) {
-            Log.d(LOG_TAG, "true");
             mAuthView.openGalleryScreen();
         }else{
-            Log.d(LOG_TAG, "false");
             mAuthView.loadAuthWebView(AuthorizationUtils.getAuthUrl());
         }
     }

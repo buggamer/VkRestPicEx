@@ -3,9 +3,6 @@ package com.example.daim.vkrestpicex.repository;
 import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 
-/**
- * Created by DAIM on 22.07.2017.
- */
 
 public class RepositoryProvider {
     private static VKRepository sVKRepository;

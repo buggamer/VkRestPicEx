@@ -8,9 +8,7 @@ import com.example.daim.vkrestpicex.content.Photo;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by DAIM on 01.08.2017.
- */
+
 
 public class SinglePhotoCache {
 

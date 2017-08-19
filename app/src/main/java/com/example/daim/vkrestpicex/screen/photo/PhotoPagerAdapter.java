@@ -32,9 +32,7 @@ public class PhotoPagerAdapter extends PagerAdapter{
     public Object instantiateItem(ViewGroup container, int position) {
         PhotoView photoView = new PhotoView(container.getContext());
         PhotoImageUtils.loadPhoto(photoView, mPhotoList.get(position).getBigPhotoUrl());
-        photoView.setOnClickListener((View v)->{mListener.onClickView();});
-        Log.d(LOG_TAG, "loading url: " + mPhotoList.get(position).getBigPhotoUrl() + "\n"
-                + "position: " + position + "; list.size: " + mPhotoList.size());
+        photoView.setOnClickListener((View v)->{mListener.onClickView();});;
         container.addView(photoView);
         return photoView;
     }

@@ -4,9 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-/**
- * Created by DAIM on 24.07.2017.
- */
 
 public class PhotoResponse {
 

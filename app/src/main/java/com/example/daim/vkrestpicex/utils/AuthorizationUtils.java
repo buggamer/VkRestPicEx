@@ -1,17 +1,12 @@
 package com.example.daim.vkrestpicex.utils;
 
 import android.support.annotation.NonNull;
-import android.support.v4.util.TimeUtils;
 import android.util.Log;
-
 
 import com.example.daim.vkrestpicex.BuildConfig;
 
 import okhttp3.HttpUrl;
 
-/**
- * Created by DAIM on 22.07.2017.
- */
 
 public class AuthorizationUtils {
 
@@ -40,6 +35,7 @@ public class AuthorizationUtils {
                 .addQueryParameter("display", DISPLAY)
                 .addQueryParameter("response_type", RESPONSE_TYPE)
                 .addQueryParameter("v", VERSION_API)
+                .addQueryParameter("revoke", "1")
                 .build()
                 .toString();
     }
