@@ -15,7 +15,7 @@ import okhttp3.Response;
 
 public class ApiKeyInterceptor implements Interceptor{
 
-    private final String mToken, mUserId;
+    private  String mToken, mUserId;
 
     private ApiKeyInterceptor(){
         mToken = PreferenceUtils.getToken();
@@ -27,7 +27,8 @@ public class ApiKeyInterceptor implements Interceptor{
     @Override
     public Response intercept(Chain chain) throws IOException {
         if(TextUtils.isEmpty(mToken) || TextUtils.isEmpty(mUserId)){
-            return chain.proceed(chain.request());
+            mToken = PreferenceUtils.getToken();
+            mUserId = PreferenceUtils.getUserId();
         }
         HttpUrl url = chain.request().url().newBuilder()
                 .addQueryParameter("access_token", mToken)
